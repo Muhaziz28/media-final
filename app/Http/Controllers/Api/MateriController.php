@@ -15,17 +15,15 @@ class MateriController extends Controller
         $limit = $request->input('limit', 6);
         $kd_id = $request->input('kd_id');
 
-        if($id)
-        {
+        if ($id) {
             $materi = Materi::with('kd')->find($id);
 
-            if($materi)
-            {
+            if ($materi) {
                 return ResponseFormatter::success(
                     $materi,
                     'Data materi berhasil didapat!'
                 );
-            }else{
+            } else {
                 return ResponseFormatter::error(
                     null,
                     'Data materi gagal didapat!',
@@ -36,15 +34,13 @@ class MateriController extends Controller
 
         $materi = Materi::with('kd');
 
-        if($kd_id)
-        {
+        if ($kd_id) {
             $materi = $materi->where('kd_id', $kd_id);
         }
-        
+
         return ResponseFormatter::success(
             $materi->paginate($limit),
             'Data materi berhasil didapat'
         );
-
     }
 }

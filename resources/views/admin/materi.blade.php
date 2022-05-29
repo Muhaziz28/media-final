@@ -46,6 +46,11 @@
                                 <span class="text-danger error-text image_error"></span>
                             </div>
                             <div class="form-group">
+                                <label for="">Soal Url</label>
+                                <input type="text" class="form-control" name="soal" placeholder="Paste soal url here" required>
+                                <span class="text-danger error-text soal_error"></span>
+                            </div>
+                            <div class="form-group">
                                 <label for="">Video</label>
                                 <input type="text" class="form-control" name="video" placeholder="Paste video url here" required>
                                 <span class="text-danger error-text video_error"></span>
@@ -73,6 +78,7 @@
                         <th>KD</th>
                         <th>Judul </th>
                         <th>Image</th>
+                        <th>Soal</th>
                         <th>Video</th>
                         <th>File</th>
                         <th></th>
@@ -170,12 +176,16 @@
                     data: 'image',
                     name: 'image',
                     render: function(data, type, row) {
-                        return '<img src="{{ asset('storage/') }}/' + data + '" width="50" height="50" />';
+                        return '<img src="{{ asset("storage/") }}/' + data + '" width="50" height="50" />';
                     }
                 },
                 {
+                    data: 'soal',
+                    name: 'soal'
+                },
+                {
                     data: 'video',
-                    name: 'vidoe'
+                    name: 'video'
                 },
                 {
                     data: 'file',
@@ -183,7 +193,7 @@
                     // jika materi != null, tampilkan tombol download
                     render: function(data, type, row) {
                         if (data != null) {
-                            return '<a href="{{ asset('storage/') }}/' + data + '" class="btn btn-primary btn-sm" target="_blank">Download</a>';
+                            return '<a href="{{ asset("storage/") }}/' + data + '" class="btn btn-primary btn-sm" target="_blank">Download</a>';
                         } else {
                             return '<span class="text-danger">Tidak ada file</span>';
                         }

@@ -24,6 +24,7 @@ class MateriController extends Controller
             'kd_id' => 'required',
             'judul' => 'required|string',
             'video' => 'required|string',
+            'soal'  => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file' => 'required|mimes:pdf',
         ]);
@@ -48,6 +49,7 @@ class MateriController extends Controller
                 'kd_id' => $request->kd_id,
                 'judul' => $request->judul,
                 'video' => $request->video,
+                'soal'  => $request->soal,
                 'image' => $uploadImage,
                 'file' => $uploadFile,
             ]);
