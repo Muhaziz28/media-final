@@ -3,79 +3,77 @@
 @section('title', 'Siswa')
 @section('content')
 
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#siswaModal">
-                Tambah Siswa
-            </button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#siswaModal">
+            Tambah Siswa
+        </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="siswaModal" tabindex="-1" aria-labelledby="siswaModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="siswaModalLabel">Tambah Siswa</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="{{ route('admin.add-siswa') }}" method="post" id="add-siswa-form">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="">Nama Siswa</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Nama Siswa" required>
-                                    <span class="text-danger error-text name_error"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">NIS</label>
-                                    <input type="text" class="form-control" name="nis" placeholder="NIS" required>
-                                    <span class="text-danger error-text nis_error"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Kelas</label>
-                                    <input type="text" class="form-control" name="kelas" placeholder="Kelas"
-                                        value="XI SMK " required>
-                                    <span class="text-danger error-text kelas_error"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Password</label>
-                                    <input type="text" class="form-control" name="password"
-                                        placeholder="Password minimal 8 karakter" required>
-                                    <span class="text-danger error-text password_error"></span>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-block btn-success">SAVE</button>
-                                </div>
-                            </form>
-                        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="siswaModal" tabindex="-1" aria-labelledby="siswaModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="siswaModalLabel">Tambah Siswa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('admin.add-siswa') }}" method="post" id="add-siswa-form">
+                            @csrf
+                            <div class="form-group">
+                                <label for="">Nama Siswa</label>
+                                <input type="text" class="form-control" name="name" placeholder="Nama Siswa" required>
+                                <span class="text-danger error-text name_error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="">NIS</label>
+                                <input type="text" class="form-control" name="nis" placeholder="NIS" required>
+                                <span class="text-danger error-text nis_error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Kelas</label>
+                                <input type="text" class="form-control" name="kelas" placeholder="Kelas" value="XI SMK " required>
+                                <span class="text-danger error-text kelas_error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                <input type="text" class="form-control" name="password" placeholder="Password minimal 8 karakter" required>
+                                <span class="text-danger error-text password_error"></span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-block btn-success">SAVE</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="siswa-table" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama </th>
-                            <th>NIS</th>
-                            <th>Kelas</th>
-                            <th>Password</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="siswa-table" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama </th>
+                        <th>NIS</th>
+                        <th>Kelas</th>
+                        <th>Password</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
     </div>
+</div>
 
-    @include('admin.layout.edit_siswa_modal')
+@include('admin.layout.edit_siswa_modal')
 @endsection
 
 @section('script')
@@ -147,8 +145,7 @@
                 [5, 10, 25, 50, -1],
                 [5, 10, 25, 50, "All"]
             ],
-            columns: [
-                {
+            columns: [{
                     data: 'DT_RowIndex',
                     name: 'DT_RowIndex'
                 },
@@ -172,7 +169,7 @@
                     data: 'actions',
                     name: 'actions'
                 }
-            
+
             ]
         });
 
@@ -195,7 +192,7 @@
         });
 
         // update siswa
-        $('#update-siswa-form').on('submit', function(e){
+        $('#update-siswa-form').on('submit', function(e) {
             e.preventDefault();
             var form = this;
             $.ajax({
@@ -239,15 +236,15 @@
                 confirmButtonText: 'Delete',
                 cancelButtonText: 'Cancel',
                 allowOutsideClick: false,
-            }).then(function(result){
-                if(result.value){
+            }).then(function(result) {
+                if (result.value) {
                     $.post(url, {
                         siswa_id: siswa_id
-                    }, function(data){
-                        if(data.code == 1){
+                    }, function(data) {
+                        if (data.code == 1) {
                             $('#siswa-table').DataTable().ajax.reload(null, false);
                             toastr.success(data.msg);
-                        }else{
+                        } else {
                             toastr.error(data.msg);
                         }
                     }, 'json');
